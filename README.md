@@ -63,173 +63,28 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-User Management API (Laravel)
-Project Overview
+# User Management API (Laravel Assignment)
 
-This project is a User Management REST API built using Laravel, following a clean layered architecture with DAO, BO, Service, and Controller layers.
+This project is a **User Management REST API** built using **Laravel**, following a **clean layered architecture** with **DAO, BO, Service, and Controller layers**.  
 Caching is implemented to improve performance and reduce database queries.
 
-Features
+---
 
-Create User
+## Features
 
-Update User
+- Create User
+- Update User
+- Retrieve User by ID
+- Clean layered architecture (DAO → BO → Service → Controller)
+- Request validation using Form Requests
+- Caching with cache invalidation
+- Proper HTTP status codes and JSON responses
 
-Retrieve User by ID
+---
 
-Clean layered architecture (DAO → BO → Service → Controller)
+## Project Setup
 
-Request validation using Form Requests
-
-Caching with cache invalidation
-
-Proper HTTP status codes and JSON responses
-
-Project Setup
-1. Clone the Repository
-git clone <repository-url>
+###  Clone the Repository
+```bash
+git clone <https://github.com/Arbina2002/laravel-project>
 cd user-management-api
-
-2. Install Dependencies
-composer install
-
-3. Environment Configuration
-cp .env.example .env
-
-
-Update the database details in .env:
-
-DB_DATABASE=user_management
-DB_USERNAME=laravel_user
-DB_PASSWORD=password123
-
-4. Generate Application Key
-php artisan key:generate
-
-5. Run Database Migrations
-php artisan migrate
-
-6. Start the Server
-php artisan serve
-
-
-Base URL:
-
-http://127.0.0.1:8000
-
-API Endpoints
-Create User
-
-POST /api/users
-
-Request Body:
-
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123"
-}
-
-
-Response:
-
-201 Created
-
-Get User by ID
-
-GET /api/users/{id}
-
-Response:
-
-200 OK
-
-404 Not Found
-
-Update User
-
-PUT /api/users/{id}
-
-Request Body:
-
-{
-  "name": "John Updated"
-}
-
-
-Response:
-
-200 OK
-
-404 Not Found
-
-Architecture Overview
-
-The application follows a layered architecture:
-
-Controller → Service → BO → DAO → Database
-
-Controller
-
-Handles HTTP requests and responses
-
-Contains no business logic
-
-Service Layer
-
-Controls application flow
-
-Handles caching
-
-Calls the BO layer
-
-BO (Business Object)
-
-Applies business rules
-
-Encrypts passwords
-
-Normalizes data
-
-DAO (Data Access Object)
-
-Handles all database interactions
-
-Contains only database queries
-
-Caching Explanation
-
-Caching is implemented in the Service layer using Laravel’s cache system.
-
-User data is cached when retrieved using Cache::remember()
-
-Cache is invalidated and refreshed when a user is updated using Cache::forget()
-
-Benefits
-
-Faster API responses
-
-Reduced database load
-
-Improved scalability
-
-Laravel file cache is used by default, but it can be easily switched to Redis for production environments.
-
-Validation
-
-Validation is handled using Form Request classes
-
-Keeps controllers clean
-
-Ensures data integrity
-
-Conclusion
-
-This project demonstrates:
-
-Clean Laravel architecture
-
-Separation of concerns
-
-Proper caching strategy
-
-Industry-standard best practices
